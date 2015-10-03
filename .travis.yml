@@ -21,13 +21,16 @@ before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 
-install:
-  - mvn package -Pbuild-distr -Pspark-1.5 -Phadoop-2.6 -Ppyspark -B -Dmaven.test.skip=true -DskipTests
+#install:
+#  - mvn package -Pbuild-distr -Pspark-1.5 -Phadoop-2.6 -Ppyspark -B -Dmaven.test.skip=true -DskipTests
 
 before_script:
   -
 
-#script:
+script:
+  - mvn package -Pbuild-distr -Pspark-1.5 -Phadoop-2.6 -Ppyspark -B -Dmaven.test.skip=true -DskipTests
+
+
 # spark 1.5
  # - mvn package -DskipTests -Pbuild-distr -Pspark-1.5 -Phadoop-2.6 -Ppyspark -B
  # - ./testing/startSparkCluster.sh 1.5.0 2.6
