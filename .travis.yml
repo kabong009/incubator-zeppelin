@@ -7,8 +7,8 @@ before_install:
 before_script:
 - 
 script:
-- mvn package -Pbuild-distr -Pspark-1.5 -Phadoop-2.6 -Ppyspark -B -Dmaven.test.skip=true
-  -DskipTests
+- mvn package -Pbuild-distr -Pspark-1.5 -Phadoop-2.6 -Ppyspark -B -Dmaven.test.skip=true -DskipTests
+
 after_failure:
 - cat target/rat.txt
 - cat zeppelin-server/target/rat.txt
