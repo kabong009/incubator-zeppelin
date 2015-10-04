@@ -6,7 +6,10 @@ rm -rf out || exit 0;
 mkdir out;
 
 # copy the tar
-cp zeppelin-distribution/target/*gz ./out/.
+echo "Current dir is ${PWD}"
+ls zeppelin-distribution/target/
+cp zeppelin-distribution/target/zepp*gz ./out/.
+cp zeppelin-distribution/target/zeppelin-0.6.0-incubating-SNAPSHOT.tar.gz ./out/.
 
 # go to the out directory and create a *new* Git repo
 cd out
