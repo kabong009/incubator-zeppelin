@@ -60,7 +60,7 @@
 
     "files":
         [
-        {"includePattern": "zeppelin-distribution/target/(zeppelin.*gz)", "n1-$1" }
+        {"includePattern": "zeppelin-distribution/target/(zeppelin.*gz)", "uploadPattern" : "n1-$1" }
         ,{"includePattern": "(.*)*/(.*\.tar\.gz)", "uploadPattern" : "n2-$2" }//, "excludePattern": ".*/do-not-deploy/.*", "uploadPattern": "gems/$2"}
         //,{"includePattern": "build/docs/(.*)", "uploadPattern": "docs/$1"}
         ],
