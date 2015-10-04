@@ -19,8 +19,8 @@ after_script:
 notifications:
   slack:
     secure: dtIkPwlf5uTun19p9TtPEAFmrLOMK2COE8TL9m8LXX/N2WzJaKYvAnovMObEV6KEgK2oZ+72Cke7eBI+Hp4FmHZ2B7mQI/PNCfRZthI3cc3zVmMd25yvLH9AlCRa2bC6R885z2copvzaoZtLBkHnPa8bUrUkbmRp40qkDPQpgO4=
-
-	
+  
+  
 deploy:
   provider: bintray
   file: "bintray-deploy.json"
@@ -28,4 +28,4 @@ deploy:
   key:
     secure: RC8/4aX3oPDBcZ/QQAUdtpEZQA9jZoGTjhqF/+2tOD0MyNJvAtajXeefG+UZI3FYrRzCMu/8/lGTt+ohFNzdeuPyxA/8Jh5bH86OBHerj1bJ3t/kX5orhkkpmYZI7TgaEM5KWuPQmd4R2BAWALVLH9qQucAhcbfwWsSmgHxogaQwxEWp7wLRA+Flpl4AzYAI21amEew0V0oscKx0jY7yxOOuqsw2p1M/EzF/T6HPdb6KmKBnyjaiAu0lNOPQoulLrmh9TkRs19nMlJE6p/Ky0Thv/j5DtaJP1XJlCHgFcZzfa/FtzXYHloebsr2L0HU1aquoU/zHKRFobQH2/4fydC1wL3yMZ4eSFZ8j/Q+DfYOOvgflu0oeODU+rTaztQ0WA3DdJMU2DvYX+619WKQ4udLlYsTeo0bMEbtabZ/Gy/OFztIw6tTRkwRd6tUQ5WBvro6qxU1FuHcakUbKw64XpIbryB6v8dcMacPB5jBZZEENF3JQdxGMUVOsQt+NOZ3aPvUml5iTMqAxCQpR21GGm+BKHHKDJMklTW62Y1RtSUTTS9pXB8O+3d0wTD0zcAPtYYTSmbl7lrS33bp7MSNSTP0cMARYkFlhZyj2+sOgNhfayN1nxOKbrrj1B/HhnnKg5R4Enam1wCTdiz4lCpeWuhv8E+XB1HQ67khYC0PeWqk=
   #passphrase: "Optional. In case a passphrase is configured on Bintray and GPG signing is used"
-  #dry-run: "Optional. If true, skips sending requests to Bintray. Useful for testing your configuration"	
+  #dry-run: "Optional. If true, skips sending requests to Bintray. Useful for testing your configuration"  
