@@ -36,7 +36,7 @@
         "gpgSign": false
     },
 
-    /* Configure the files you would like to upload to Bintray and their upload path.
+    /* Configure the files you would  like to upload to Bintray and their upload path.
     You can define one or more groups of patterns.
     Each group contains three patterns:
 
