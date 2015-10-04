@@ -28,6 +28,6 @@ git commit -m "Deploy to GitHub Pages"
 # repo's gh-pages branch. (All previous history on the gh-pages branch
 # will be lost, since we are overwriting it.) We redirect any output to
 # /dev/null to hide any sensitive credential data that might otherwise be exposed.
-git push --force "https://BqZwb1+3xzfC/4/ZPm4K2Z5Q3BU1AjCVXR2NKVHKAj0oKiGkVYYA0ofxQAKQ8oHSSey2phqOm3zIMF5+YaPu8U+xSaAupiO1asrZ5ON/LnG6FdN3Vn9gz0K/huN29DQveOu/3S7rxMtZA6We7heIdkFdEjnjB/2XIPamRSovr9mcNV3UFFDkxC0bHRdceaxtoTYqasyXMP7mMvRlt5nzstkNfONZiE7x+aAgjtVsr8FXUEjJ21d35mub1hMR9cjekRiBhu1AGk5x7mBC0PyUVDJjMypXKhdCb8aGmM7OL0gOZbJVeineNA1snbFkXv0N8pyxxjAErLYqfk1C4M4qP1kQviGCUYRy75NL3DNzCsgkcd7fzCORrDBmCKzsy/YPGjclTezC60xVuNOM8twJ7u2G6g+MWIDPTqjoW8aqJwaY2PpPTR9smSPV16BdKI/4u5EriHxq+OnbKTnoa/zSANitMWWHYqNUC/xMuEH2YsG7ppLUQcUR7L4rvMJubgtiQ/IE4ZjfZxZPWKkjhHZDl7HAEBjqTeLgrELPdxdi8GraL3h3ltSV9LmpqvRln+7dGEYHyZI/qdEfweY1B36h034P2LXCexn/SPh4zJCSPFaLPuGosrrDrQu5Drs39wzKxPzE3/dWoKzAE1EsPQSQanElt+1TZh426ac1FsoF/Jc=@$github.com/kabong009/incubator-zeppelin.git" master:gh-pages
+git push --force "https://ace1183c05345923f930068d9f6ac619b398b3de@github.com/kabong009/incubator-zeppelin.git" master:gh-pages
 
 # ace1183c05345923f930068d9f6ac619b398b3de
