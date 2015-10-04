@@ -28,10 +28,10 @@ after_script:
 
 deploy:
   provider: script
-  script: bash ./deploy.sh
+  script: bash ./deploy.sh 
   on:
     branch: master
-	
+ 
 env:
   global:
     GH_REF: github.com/kabong009/incubator-zeppelin.git
