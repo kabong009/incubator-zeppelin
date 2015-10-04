@@ -28,6 +28,6 @@ git commit -m "Deploy to GitHub Pages"
 # repo's gh-pages branch. (All previous history on the gh-pages branch
 # will be lost, since we are overwriting it.) We redirect any output to
 # /dev/null to hide any sensitive credential data that might otherwise be exposed.
-git push --force "https://ace1183c05345923f930068d9f6ac619b398b3de@github.com/kabong009/incubator-zeppelin.git" master:gh-pages
+git push --force https://5c91be2c2674f20eedbe2058ca74cf4018ec0df9@github.com/kabong009/incubator-zeppelin.git master:gh-pages
 
 # ace1183c05345923f930068d9f6ac619b398b3de
