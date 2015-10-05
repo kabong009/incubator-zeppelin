@@ -41,5 +41,5 @@ addons:
     bucket: "kbng-zeppelin"
     debug: true
     paths:
-    - "$HOME/zeppelin-distribution/target/zeppelin-0.6.0-incubating-SNAPSHOT.tar.gz"
+    - "zeppelin-distribution/target/zeppelin-0.6.0-incubating-SNAPSHOT.tar.gz"
 #    - $(ls $HOME/zeppelin-distribution/target/*gz | tr "\n" ":")
