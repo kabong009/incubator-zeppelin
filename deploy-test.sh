@@ -7,10 +7,10 @@ mkdir out;
 
 # copy the tar
 echo "Current dir is ${PWD}"
-echo "something" > test.txt
 
 # go to the out directory and create a *new* Git repo
 cd out
+echo "something" > test.txt
 git init
 
 # inside this git repo we'll pretend to be a new user
