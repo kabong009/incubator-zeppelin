@@ -36,8 +36,10 @@ env:
 #    repo: kabong009/incubator-zeppelin
 
 addons:
-  artifacts: true
   s3_region: "us-east-1"
-  paths:
-  - $HOME/zeppelin-distribution/target/zeppelin-0.6.0-incubating-SNAPSHOT.tar.gz
+  artifacts:
+    bucket: "kbng-zeppelin"
+    debug: true
+    paths:
+    - "$HOME/zeppelin-distribution/target/zeppelin-0.6.0-incubating-SNAPSHOT.tar.gz"
 #    - $(ls $HOME/zeppelin-distribution/target/*gz | tr "\n" ":")
