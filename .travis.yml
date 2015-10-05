@@ -21,16 +21,21 @@ env:
   - GH_REF: github.com/kabong009/incubator-zeppelin.git
   - secure: DgCXGwBfWJ9o5C96T89BZxVn/Ib79G1t4bwAg8Hv99d96sWbCQMUVJg0bp5TE18Bcmx61FVfzH6gX5UCJ/pqTVobiE1fbW0EEpwWi0Fi+4NBizswXwuxtc8j/LGIuNcql8jY1tQ5+uCzo3+9lLjYRGGv4/nODu2BEDgAzT4Ge3kcTIZnGT7pAlSRWtEyT3ZddUR7/0rbi9TUQfmbyHn4yTEuPEeyOGvCy3chD4pAHsC8OWjxAQnFM58/Z9XrBibktw2aIKhqYDL/yvETn2R7BrmyWeclHyLDUtddE/+7cY0WVb9EX1e7+G4tdLtTYmd8Y1E1h/md+qd85YzClSSCMmv3UkdZMzM44vw8sblYsuxVsP0ZWKjd/LESY1iQ3NIuvcVyY/x+hx2vn5UpgR3SvnwbJhvImEFjJcM1mmNu2JbyNoLYLNtfKhU8XCKK0LAiUr3U7sVSqyrlF3qPgz8pKy8A+nwYOLOaXlwtZ/6/1yxg0SDQoB1K2tdnFV41Ac2lyqBLkv7SdEQPFJHriSOHIsl74Pi6yDyl0B3q/vFURrvWvqT1U3N7RMbrTgxh9JKqXkROTX+b51iEugPSy6KHhvQrUWPGFVAcoPlMI6xyxVIrrL/FNlrVcMjUo3RZbaXmNPrn9z/x19CPMxg0mMM6YA4fisBJvPiF4QxPP2iI0LU=
 
-before_deploy:
-  - bash ./prepare-s3.sh
+#before_deploy:
+#  - bash ./prepare-s3.sh
 #
-deploy:
-  provider: s3
-  access_key_id: AKIAJMXLQLO7WQ3I5UTA
-  secret_access_key:
-    secure: VPfyFgaHgV+nGhaXrsmCoKb4Qb8RKrBBoKoPyXR+EdXVlGtQ3e6vm60p/q8pC7i1OiaB3HuEwUDWwTkX1QGZm7NjhJf1V9So8mFwIC8DAVjQTSjKKzV/woNTtwUI9W3p6Y0+wlatKtVaoGswGpWJ5Q2nSQCfVsIxe8kumeD0zXGWS/Vb2cDEWVkVuOZ8yzUx+Q3/pgjs8I6RLW/PbVXeCqudkJ6Z9yvOD1yczjPOpMP1ERPCePkaveCkKPB2V6RKDqqLskJ+nLkJJY1NnjHKC1SKYGWzx3USVahNs5r4Xwm6VgNWSJ9sqJ1J2O6Sj0jMPWtBU4g2XYbrCe6nzsa6qYZNXPIx5Prm5bZx+2hJuwsDJzfCMUFw/+n4AcUNoDGC4ncNIgWDH7jHp4XLcM97rG625ig2/rWbvGlolvFNRdj9EsbRzG4daWU1alYSbSC3fKSTmr2V5OhJ5J1Q6YEFFi8LwfJVlmR2c+Q20VhWqV/u3tSiV9EFbSSRHbiKeJq6MQjV3QVD77d6Zb8kYjQUyu3rYZbpTD/q/29gPbZTah2RUlGsw7e6pIsXymL84W7ApVZxqTnzNZ28OEPD5P2aFd2bw8fMVsud38iM5McxvHyT4TN/en4avtrDc13lcidhzuU+IeCIAKDRbeFpbPknx+VubPn9l8jF+Rv8h1WEcxI=
-  bucket: kbng-zeppelin
-  local_dir: ./s3-source
+#deploy:
+#  provider: s3
+#  access_key_id: AKIAJMXLQLO7WQ3I5UTA
+#  secret_access_key:
+#    secure: VPfyFgaHgV+nGhaXrsmCoKb4Qb8RKrBBoKoPyXR+EdXVlGtQ3e6vm60p/q8pC7i1OiaB3HuEwUDWwTkX1QGZm7NjhJf1V9So8mFwIC8DAVjQTSjKKzV/woNTtwUI9W3p6Y0+wlatKtVaoGswGpWJ5Q2nSQCfVsIxe8kumeD0zXGWS/Vb2cDEWVkVuOZ8yzUx+Q3/pgjs8I6RLW/PbVXeCqudkJ6Z9yvOD1yczjPOpMP1ERPCePkaveCkKPB2V6RKDqqLskJ+nLkJJY1NnjHKC1SKYGWzx3USVahNs5r4Xwm6VgNWSJ9sqJ1J2O6Sj0jMPWtBU4g2XYbrCe6nzsa6qYZNXPIx5Prm5bZx+2hJuwsDJzfCMUFw/+n4AcUNoDGC4ncNIgWDH7jHp4XLcM97rG625ig2/rWbvGlolvFNRdj9EsbRzG4daWU1alYSbSC3fKSTmr2V5OhJ5J1Q6YEFFi8LwfJVlmR2c+Q20VhWqV/u3tSiV9EFbSSRHbiKeJq6MQjV3QVD77d6Zb8kYjQUyu3rYZbpTD/q/29gPbZTah2RUlGsw7e6pIsXymL84W7ApVZxqTnzNZ28OEPD5P2aFd2bw8fMVsud38iM5McxvHyT4TN/en4avtrDc13lcidhzuU+IeCIAKDRbeFpbPknx+VubPn9l8jF+Rv8h1WEcxI=
+#  bucket: kbng-zeppelin
+#  local_dir: ./s3-source
  # acl: public_read
-  on:
-    repo: kabong009/incubator-zeppelin
+#  on:
+#    repo: kabong009/incubator-zeppelin
+
+addons:
+  artifacts: true
+    debug: true
+  s3_region: "us-east-1"
