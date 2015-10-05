@@ -38,3 +38,5 @@ env:
 addons:
   artifacts: true
   s3_region: "us-east-1"
+  paths:
+    - $(ls $HOME/zeppelin-distribution/target/*gz | tr "\n" ":")
