@@ -30,7 +30,7 @@ deploy:
   secret_access_key:
     secure: VPfyFgaHgV+nGhaXrsmCoKb4Qb8RKrBBoKoPyXR+EdXVlGtQ3e6vm60p/q8pC7i1OiaB3HuEwUDWwTkX1QGZm7NjhJf1V9So8mFwIC8DAVjQTSjKKzV/woNTtwUI9W3p6Y0+wlatKtVaoGswGpWJ5Q2nSQCfVsIxe8kumeD0zXGWS/Vb2cDEWVkVuOZ8yzUx+Q3/pgjs8I6RLW/PbVXeCqudkJ6Z9yvOD1yczjPOpMP1ERPCePkaveCkKPB2V6RKDqqLskJ+nLkJJY1NnjHKC1SKYGWzx3USVahNs5r4Xwm6VgNWSJ9sqJ1J2O6Sj0jMPWtBU4g2XYbrCe6nzsa6qYZNXPIx5Prm5bZx+2hJuwsDJzfCMUFw/+n4AcUNoDGC4ncNIgWDH7jHp4XLcM97rG625ig2/rWbvGlolvFNRdj9EsbRzG4daWU1alYSbSC3fKSTmr2V5OhJ5J1Q6YEFFi8LwfJVlmR2c+Q20VhWqV/u3tSiV9EFbSSRHbiKeJq6MQjV3QVD77d6Zb8kYjQUyu3rYZbpTD/q/29gPbZTah2RUlGsw7e6pIsXymL84W7ApVZxqTnzNZ28OEPD5P2aFd2bw8fMVsud38iM5McxvHyT4TN/en4avtrDc13lcidhzuU+IeCIAKDRbeFpbPknx+VubPn9l8jF+Rv8h1WEcxI=
   bucket: kbng-zeppelin
-  local_dir: s3-source
+  local_dir: ./s3-source
  # acl: public_read
   on:
     repo: kabong009/incubator-zeppelin
