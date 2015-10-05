@@ -23,7 +23,7 @@ env:
 
 before_deploy:
   - bash ./prepare-s3.sh
-  
+#
 deploy:
   provider: s3
   access_key_id: AKIAJMXLQLO7WQ3I5UTA
