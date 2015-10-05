@@ -7,9 +7,7 @@ mkdir out;
 
 # copy the tar
 echo "Current dir is ${PWD}"
-ls zeppelin-distribution/target/
-cp zeppelin-distribution/target/zepp*gz ./out/.
-cp zeppelin-distribution/target/zeppelin-0.6.0-incubating-SNAPSHOT.tar.gz ./out/.
+echo "something" > test.txt
 
 # go to the out directory and create a *new* Git repo
 cd out
