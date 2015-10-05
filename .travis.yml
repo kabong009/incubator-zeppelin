@@ -4,7 +4,7 @@ jdk:
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-- bash ./deploy-test.sh
+# - bash ./deploy-test.sh
 before_script:
 - 
 script:
