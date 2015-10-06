@@ -4,42 +4,24 @@ jdk:
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-before_script:
-- 
 script:
-- mvn package -Pbuild-distr -Pspark-1.5 -Phadoop-2.6 -Ppyspark -B -Dmaven.test.skip=true
-  -DskipTests
+- mvn package -Pbuild-distr -Pspark-1.5 -Phadoop-2.6 -Ppyspark -B -DskipTests
 after_failure:
 - cat target/rat.txt
 - cat zeppelin-server/target/rat.txt
 - cat zeppelin-distribution/target/zeppelin-*-SNAPSHOT/zeppelin-*-SNAPSHOT/logs/zeppelin*.log
 - cat zeppelin-distribution/target/zeppelin-*-SNAPSHOT/zeppelin-*-SNAPSHOT/logs/zeppelin*.out
-after_script:
-- 
-env:
-  global:
-  - GH_REF: github.com/kabong009/incubator-zeppelin.git
-  - secure: DgCXGwBfWJ9o5C96T89BZxVn/Ib79G1t4bwAg8Hv99d96sWbCQMUVJg0bp5TE18Bcmx61FVfzH6gX5UCJ/pqTVobiE1fbW0EEpwWi0Fi+4NBizswXwuxtc8j/LGIuNcql8jY1tQ5+uCzo3+9lLjYRGGv4/nODu2BEDgAzT4Ge3kcTIZnGT7pAlSRWtEyT3ZddUR7/0rbi9TUQfmbyHn4yTEuPEeyOGvCy3chD4pAHsC8OWjxAQnFM58/Z9XrBibktw2aIKhqYDL/yvETn2R7BrmyWeclHyLDUtddE/+7cY0WVb9EX1e7+G4tdLtTYmd8Y1E1h/md+qd85YzClSSCMmv3UkdZMzM44vw8sblYsuxVsP0ZWKjd/LESY1iQ3NIuvcVyY/x+hx2vn5UpgR3SvnwbJhvImEFjJcM1mmNu2JbyNoLYLNtfKhU8XCKK0LAiUr3U7sVSqyrlF3qPgz8pKy8A+nwYOLOaXlwtZ/6/1yxg0SDQoB1K2tdnFV41Ac2lyqBLkv7SdEQPFJHriSOHIsl74Pi6yDyl0B3q/vFURrvWvqT1U3N7RMbrTgxh9JKqXkROTX+b51iEugPSy6KHhvQrUWPGFVAcoPlMI6xyxVIrrL/FNlrVcMjUo3RZbaXmNPrn9z/x19CPMxg0mMM6YA4fisBJvPiF4QxPP2iI0LU=
 
-#before_deploy:
-#  - bash ./prepare-s3.sh
-#
-#deploy:
-#  provider: s3
-#  access_key_id: AKIAJMXLQLO7WQ3I5UTA
-#  secret_access_key:
-#    secure: VPfyFgaHgV+nGhaXrsmCoKb4Qb8RKrBBoKoPyXR+EdXVlGtQ3e6vm60p/q8pC7i1OiaB3HuEwUDWwTkX1QGZm7NjhJf1V9So8mFwIC8DAVjQTSjKKzV/woNTtwUI9W3p6Y0+wlatKtVaoGswGpWJ5Q2nSQCfVsIxe8kumeD0zXGWS/Vb2cDEWVkVuOZ8yzUx+Q3/pgjs8I6RLW/PbVXeCqudkJ6Z9yvOD1yczjPOpMP1ERPCePkaveCkKPB2V6RKDqqLskJ+nLkJJY1NnjHKC1SKYGWzx3USVahNs5r4Xwm6VgNWSJ9sqJ1J2O6Sj0jMPWtBU4g2XYbrCe6nzsa6qYZNXPIx5Prm5bZx+2hJuwsDJzfCMUFw/+n4AcUNoDGC4ncNIgWDH7jHp4XLcM97rG625ig2/rWbvGlolvFNRdj9EsbRzG4daWU1alYSbSC3fKSTmr2V5OhJ5J1Q6YEFFi8LwfJVlmR2c+Q20VhWqV/u3tSiV9EFbSSRHbiKeJq6MQjV3QVD77d6Zb8kYjQUyu3rYZbpTD/q/29gPbZTah2RUlGsw7e6pIsXymL84W7ApVZxqTnzNZ28OEPD5P2aFd2bw8fMVsud38iM5McxvHyT4TN/en4avtrDc13lcidhzuU+IeCIAKDRbeFpbPknx+VubPn9l8jF+Rv8h1WEcxI=
-#  bucket: kbng-zeppelin
-#  local_dir: ./s3-source
- # acl: public_read
-#  on:
-#    repo: kabong009/incubator-zeppelin
-
-addons:
-  s3_region: "us-east-1"
-  artifacts:
-    bucket: "kbng-zeppelin"
-    debug: true
-    paths:
-    - "zeppelin-distribution/target/zeppelin-0.6.0-incubating-SNAPSHOT.tar.gz"
-#    - $(ls $HOME/zeppelin-distribution/target/*gz | tr "\n" ":")
+before_deploy:
+- bash ./prepare-s3.sh
+deploy:
+  provider: s3
+  skip_cleanup: true
+  access_key_id: AKIAJ5T3AQTJUF6WLMKA
+  secret_access_key:
+    secure: RyWRTOG0TTGxFIIrQiVMz9aaLYXRJdPEAK/MU3Ous0/5vS5M6oPzwi1RG9gl0vt5qH0I2nswllMWHNM8SxO0ba6hIigWY5DOvJ7je4W4w3W03tBnet0cmG92MdGDbcsaT1YCYY8f5TIyndEBqN1CnO00vesDK979nKwTaOTDk3tFLAXBZd9nrbG297VyFuZmVCy2tMygciEpvNpT4BkbeVYzvmKfEhFOsq0Rty/oocL/f6toaqaz+SVmNLgFSfv7eCdq3Sufk/BK2w2Y4viXtcTPpaEQtbHgLMEwTlafYOxXjPpujIsq773szSSiRqsno4hJZk9c8tzhysHxBdicJwTUerzgQ84/ERMNyQ1L+McgPBcf8aDf/f0/smncV+geGZPzGCYeVQgxM0M95DgpawMbdSRDmH0W1z2aZOzS/B/Kn5vasIUlbleM2qu/FHDsQp+UqIH7st2HrKLoa2ZQZdMCpBnFHvrPC12wK3DKvXHsdWcsuJ4m0R6m6i4GqQtjjhdcFLwv4wcKo9Lg9EuemYiJRtYhfgHioJ4cP80dthuz3DK6lJQwvnmhWeAbxsXuMSoln53/nKeYRy67bne4Ai+9I5k9KQlKSrV0DvKir9hPd0mkoqR4MJ3aARc42f/iOnXKm38iPQWI8xejQ157rn5MLf29M+JduFczJYyO6Hk=
+  bucket: kbng-zeppelin
+  region: us-east-1
+  #upload-dir: travis-builds
+  local_dir: s3-source
+  detect_encoding: true
