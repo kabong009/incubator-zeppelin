@@ -106,8 +106,16 @@ public class SparkInterpreter extends Interpreter {
                 + "we should set this value")
             .add("zeppelin.spark.useHiveContext",
                 getSystemDefault("ZEPPELIN_SPARK_USEHIVECONTEXT",
-                    "zeppelin.spark.useHiveContext", "true"),
+                    "zeppelin.spark.useHiveContext", "false"),
                 "Use HiveContext instead of SQLContext if it is true.")
+            .add("zeppelin.spark.useCassandraContext",
+                getSystemDefault("ZEPPELIN_SPARK_USECASSANDRACONTEXT",
+                    "zeppelin.spark.useHiveContext", "true"),
+                "Use CassandraContext instead of SQLContext if it is true.")
+			.add("spark.cassandra.connection.host",
+                getSystemDefault("ZEPPELIN_SPARK_CASSANDRACONNECTIONHOST",
+                    "spark.cassandra.connection.host", null),
+                "Define Cassandra connection host")
             .add("zeppelin.spark.maxResult",
                 getSystemDefault("ZEPPELIN_SPARK_MAXRESULT", "zeppelin.spark.maxResult", "1000"),
                 "Max number of SparkSQL result to display.")
@@ -200,6 +208,10 @@ public class SparkInterpreter extends Interpreter {
     return Boolean.parseBoolean(getProperty("zeppelin.spark.useHiveContext"));
   }
 
+  private boolean useCassandraContext() {
+    return Boolean.parseBoolean(getProperty("zeppelin.spark.useCassandraContext"));
+  }
+
   public SQLContext getSQLContext() {
     if (sqlc == null) {
       if (useHiveContext()) {
@@ -218,7 +230,23 @@ public class SparkInterpreter extends Interpreter {
           // in this case SQLContext can be used.
           sqlc = new SQLContext(getSparkContext());
         }
-      } else {
+      } else if ( useCassandraContext() ) {
+		String name = "org.apache.spark.sql.cassandra.CassandraSQLContext";
+        Constructor<?> cc;
+        try {
+          cc = getClass().getClassLoader().loadClass(name)
+              .getConstructor(SparkContext.class);
+          sqlc = (SQLContext) cc.newInstance(getSparkContext());
+        } catch (NoSuchMethodException | SecurityException
+            | ClassNotFoundException | InstantiationException
+            | IllegalAccessException | IllegalArgumentException
+            | InvocationTargetException e) {
+          logger.warn("Can't create CassandraSQLContext. Fallback to SQLContext", e);
+          // when hive dependency is not loaded, it'll fail.
+          // in this case SQLContext can be used.
+          sqlc = new SQLContext(getSparkContext());
+        }
+	  } else {
         sqlc = new SQLContext(getSparkContext());
       }
     }
@@ -282,6 +310,18 @@ public class SparkInterpreter extends Interpreter {
             .setMaster(getProperty("master"))
             .setAppName(getProperty("spark.app.name"))
             .set("spark.repl.class.uri", classServerUri);
+			
+	if ( useCassandraContext() ) {
+		conf.set("spark.cassandra.connection.host", getProperty("spark.cassandra.connection.host"));
+
+		if (getProperty("spark.cassandra.auth.username") != null) {
+			conf.set("spark.cassandra.auth.username", getProperty("spark.cassandra.auth.username"));
+		}
+
+		if (getProperty("spark.cassandra.auth.password") != null) {
+			conf.set("spark.cassandra.auth.password", getProperty("spark.cassandra.auth.password"));
+		}
+	}
 
     if (jars.length > 0) {
       conf.setJars(jars);
